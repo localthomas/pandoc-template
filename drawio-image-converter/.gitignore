@@ -1,0 +1,10 @@
+# IDE specific files
+.vscode
+
+# build products
+result
+
+# test assets
+data/*
+# excluding the test.drawio file
+!data/test.drawio

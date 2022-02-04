@@ -1,0 +1,5 @@
+# ignore automatically generated files in this folder
+/*.png
+/*.pdf
+/*.svg
+cache.json

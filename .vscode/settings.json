@@ -1,0 +1,10 @@
+{
+    "latex-workshop.bibtex-fields.sort.enabled": true,
+    "latex-workshop.bibtex-format.tab": "tab",
+    "latex-workshop.bibtex-format.trailingComma": true,
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.search.rootFiles.include": [],
+    "latex-workshop.latex.outDir": "%DIR%/out/pdf",
+    "latex-workshop.view.pdf.backgroundColor": "#333333",
+    "nixEnvSelector.nixFile": "${workspaceRoot}/shell.nix"
+}
