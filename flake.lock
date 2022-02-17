@@ -150,11 +150,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1645102651,
-        "narHash": "sha256-EI/9DuFn4coqk9rx3BCEr8f3vRQbDsdLUCai2uvNWZQ=",
+        "lastModified": 1645107383,
+        "narHash": "sha256-xQqLaT/eA9Okt9gqjXPRI+84Jh2dQ/EDemN6DVh6Ygc=",
         "owner": "localthomas",
         "repo": "pandoc-drawio",
-        "rev": "e5ed50cc165e3b34dd4c00794060659f72eea0a1",
+        "rev": "d0cd265183484270b5664d25a40cd388c94deba5",
         "type": "github"
       },
       "original": {
