@@ -35,6 +35,7 @@
             drawio-image-converter
             texlive.combined.scheme-full
             pandoc
+            librsvg
             haskellPackages.pandoc-crossref
           ];
         };
@@ -45,16 +46,43 @@
           nativeBuildInputs = [ self.devShell.${system}.nativeBuildInputs ];
           buildPhase = ''
             ln -s ${bash}/bin/bash /bin/bash;
-            #export PATH=${drawio-image-converter}/bin:$PATH;
             ./build-pdf.sh;
           '';
           installPhase = ''
             # copy PDF file(s)
+            mkdir -p $out/pdf
             cp --verbose --recursive ./out/pdf $out;
           '';
         };
 
-        defaultPackage = self.packages.${system}.pdf;
+        packages.html = stdenv.mkDerivation {
+          name = "html";
+          src = self;
+          nativeBuildInputs = [ self.devShell.${system}.nativeBuildInputs ];
+          buildPhase = ''
+            ln -s ${bash}/bin/bash /bin/bash;
+            ./build-html.sh;
+          '';
+          installPhase = ''
+            # copy HTML file(s)
+            mkdir -p $out/html
+            cp --verbose --recursive ./out/html $out;
+          '';
+        };
+
+        # merge PDF and HTML outputs
+        defaultPackage = stdenv.mkDerivation {
+          name = "pdf-and-html";
+          src = self;
+          installPhase = ''
+            # copy HTML file(s)
+            mkdir -p $out/html
+            cp --verbose --recursive ${self.packages.${system}.html}/html $out;
+            # copy PDF file(s)
+            mkdir -p $out/pdf
+            cp --verbose --recursive ${self.packages.${system}.pdf}/pdf $out;
+          '';
+        };
       }
     );
 }
