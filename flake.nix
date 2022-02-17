@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT OR Apache-2.0
 {
-  description = "Template for Pandoc LaTeX development";
+  description = "Template for Pandoc Markdown development";
 
   inputs = {
     # for eachSystem function
@@ -13,18 +13,21 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
+
+    pandoc-drawio = {
+      url = "github:localthomas/pandoc-drawio";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... }:
+  outputs = { self, nixpkgs, flake-utils, pandoc-drawio, ... }:
     flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
       let
         pkgs = import nixpkgs {
           inherit system;
         };
-        drawio-image-converter = import ./drawio-image-converter/derivation.nix
-          {
-            inherit pkgs;
-          };
+
+        pandoc-drawio-bin = pandoc-drawio.defaultPackage.${system};
       in
       with pkgs;
       {
@@ -32,8 +35,8 @@
           nativeBuildInputs = [
             nixpkgs-fmt
             go
-            drawio-image-converter
             texlive.combined.scheme-full
+            pandoc-drawio-bin
             pandoc
             librsvg
             haskellPackages.pandoc-crossref

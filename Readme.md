@@ -1,7 +1,7 @@
 # pandoc-template with nix
 
-This repository is a template for a custom pandoc document creation process that generates a PDF file from Markdown.
-It includes an automatic conversion for [draw.io](https://www.diagrams.net/) files for integration into the Markdown sources.
+This repository is a template for a custom pandoc document creation process that generates a PDF file and HTML from Markdown.
+It includes an [automatic conversion](https://github.com/localthomas/pandoc-drawio) for [draw.io](https://www.diagrams.net/) files for integration into the Markdown sources.
 
 ## Requirements
 
@@ -11,8 +11,6 @@ All dependencies for building the output can be found in the [flake.nix](flake.n
 Recommended tools for the development are Visual Studio Code with the following extensions:
 * [arrterian.nix-env-selector](https://marketplace.visualstudio.com/items?itemName=arrterian.nix-env-selector) (required if any other extensions from this list are used)
 * [james-yu.latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) (for formatting and linting of `*.tex` and `*.bib` files)
-* [golang.go](https://marketplace.visualstudio.com/items?itemName=
-golang.go) (only for development of the [drawio-image-converter](drawio-image-converter/graphics.go))
 * [jnoortheen.nix-ide](https://marketplace.visualstudio.com/items?itemName=jnoortheen.nix-ide) (only for development of the `*.nix` files)
 
 ## Usage
@@ -20,9 +18,9 @@ golang.go) (only for development of the [drawio-image-converter](drawio-image-co
 These folders are relevant for the development of the document:
 * `src/main.md`: the main entry point for compilation
   * `graphics` with
-    * `drawio`: all `*.drawio` files are converted into `*.pdf` automatically in this folder. Refer to `*.drawio` files via replacing their extension with `pdf`. See [`main.md`](src/main.md) for an example.
-    * `images`: the folder for all images that are ready without further pre-processing
-* `out`: contains the resulting data (PDF) from the build script
+    * `drawio`: all `*.drawio` files are auto-converted into their required output image formats. This folder contains a `.gitignore` file that already ignores the auto-generated images. See [`main.md`](src/main.md) for an example.
+    * `images`: the folder for all images that are ready without further pre-processing (does not include the `.gitignore` and therefore can contain normal image formats)
+* `out`: contains the resulting data from the build script
 * `result`: contains the result of the `nix build` building process
 
 Enter the nix shell via `nix develop` or `nix-shell` and execute `./build-pdf.sh` (or `./build-html.sh`) for building the documents using caching.

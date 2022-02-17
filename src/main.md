@@ -33,7 +33,7 @@ Laudat ille auditi; vertitur iura tum nepotis causa; motus. Diva virtus! Acrota
 destruitis vos iubet quo et classis excessere Scyrumve spiro subitusque mente
 Pirithoi abstulit, lapides.
 
-![figurae flectentem annis](src/graphics/drawio/drawio-test.pdf){#fig:fig-ref}
+![figurae flectentem annis](src/graphics/drawio/drawio-test.drawio){#fig:fig-ref}
 
 Porrigitur et Pallas nuper [@fig:fig-ref] longusque cratere habuisse sepulcro pectore fertur.
 Laudat ille auditi; vertitur iura tum nepotis causa; motus. Diva virtus! Acrota
