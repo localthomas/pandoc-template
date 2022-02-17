@@ -6,7 +6,7 @@ It includes an automatic conversion for [draw.io](https://www.diagrams.net/) fil
 ## Requirements
 
 The only dependency is the [nix package manager](https://nixos.org/download.html) with [flake support](https://nixos.wiki/wiki/Flakes).
-All dependencies for building the PDF output can be found in the [flake.nix](flake.nix) file and a wrapper for using `nix-shell` is provided in the [shell.nix](shell.nix) file.
+All dependencies for building the output can be found in the [flake.nix](flake.nix) file and a wrapper for using `nix-shell` is provided in the [shell.nix](shell.nix) file.
 
 Recommended tools for the development are Visual Studio Code with the following extensions:
 * [arrterian.nix-env-selector](https://marketplace.visualstudio.com/items?itemName=arrterian.nix-env-selector) (required if any other extensions from this list are used)
@@ -25,7 +25,7 @@ These folders are relevant for the development of the document:
 * `out`: contains the resulting data (PDF) from the build script
 * `result`: contains the result of the `nix build` building process
 
-Enter the nix shell via `nix develop` or `nix-shell` and execute `./build-pdf.sh` for building the PDF document using caching.
+Enter the nix shell via `nix develop` or `nix-shell` and execute `./build-pdf.sh` (or `./build-html.sh`) for building the documents using caching.
 This should provide shorter building times after the first execution and helps with fast iteration times.
 The [VSCode task](https://code.visualstudio.com/docs/editor/tasks) `Build PDF` can be used to execute the build script as well.
 
