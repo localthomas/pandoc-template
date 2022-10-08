@@ -1,5 +1,10 @@
 # pandoc-template with nix
 
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
+
+*This project is considered stable and no significant feature development is currently planned.*
+*However, pull requests and issues are welcome: support/maintenance will be provided as time allows.*
+
 This repository is a template for a custom pandoc document creation process that generates a PDF file and HTML from Markdown.
 It includes an [automatic conversion](https://github.com/localthomas/pandoc-drawio) for [draw.io](https://www.diagrams.net/) files for integration into the Markdown sources.
 
